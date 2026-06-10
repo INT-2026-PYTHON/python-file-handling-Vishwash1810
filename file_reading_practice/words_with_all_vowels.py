@@ -40,3 +40,27 @@ Explanation:
 =================================================
 
 """
+
+
+def has_all_vowels(word):
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    word_lower = word.lower()
+    return vowels.issubset(set(word_lower))
+
+
+def find_words_with_all_vowels():
+     # Read the sowpods.txt file
+    with open('sowpods.txt', 'r') as file:
+        words = file.read().splitlines()
+    
+    count = 0
+    
+    # Process each word
+    for word in words:
+        if has_all_vowels(word):
+            print(word)
+            count += 1
+    
+    # Print total count
+    print(f"Total words with all vowels: {count}")
+
